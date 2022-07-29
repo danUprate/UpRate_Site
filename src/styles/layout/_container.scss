@@ -1,0 +1,24 @@
+/* LAYOUT
+ * Container
+ * Width containers, assigned by selector or extended withing other components/partials.
+ * This component follows a BEM structure, Block - Element - Modifier.
+ */
+
+
+$name: container;
+
+
+//-----------
+// * BLOCK *
+//-----------
+
+.#{$name},
+ %#{$name}{
+    padding-left: 25px;
+    padding-right: 25px;
+
+    @include respond-to(small-and-up){
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+ }

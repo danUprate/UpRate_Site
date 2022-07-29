@@ -1,0 +1,54 @@
+/* LAYOUT
+ * Navbar
+ * Controlling site navigation.
+ * This component follows a BEM structure, Block - Element - Modifier.
+ */
+
+ $name: nav-bar;
+
+
+//-----------
+// * BLOCK *
+//-----------
+.#{$name}{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    box-shadow: 0 0 2px rgba($black, 0.4);
+    overflow: hidden;
+
+    @extend %container;
+}
+
+
+
+//-------------
+// * Element *
+//-------------
+
+.#{$name}__logo{
+    max-width: 185px
+}
+
+//-------------
+// * Element *
+//-------------
+
+.#{$name}__links{
+    display: inline-flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    > li{
+        width: 100%;
+
+        & + li{
+            margin-left: 20px;
+        }
+    }
+
+}

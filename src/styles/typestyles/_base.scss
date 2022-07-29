@@ -41,15 +41,6 @@ $light: 300;
   -moz-osx-font-smoothing: grayscale;
 }
 
-//---------------------
-// TYPESTYLE 0
-// Where is this used?
-//---------------------
-%ts-0 {
-  font-family: inherit;
-  font-size: 60px;
-  line-height: 70px;
-}
 
 //---------------------
 // TYPESTYLE 1
@@ -59,8 +50,8 @@ $light: 300;
   font-family: inherit;
   font-weight: $black;
   margin-bottom: 10px;
-  font-size: 35px;
-  line-height: 45px;
+  font-size: rem(35);
+  line-height: rem(45);
   text-rendering: auto;
 }
 
@@ -70,8 +61,8 @@ $light: 300;
 //---------------------
 %ts-2 {
   font-family: inherit;
-  font-size: 28px;
-  line-height: 38px;
+  font-size: rem(28);
+  line-height: rem(38);
   font-weight: 900;
 }
 
@@ -81,54 +72,14 @@ $light: 300;
 //---------------------
 %ts-3 {
   font-family: inherit;
-  font-size: 17px;
-  line-height: 24px;
+  font-size: rem(15);
+  line-height: rem(25);
   font-weight: $bold;
 
   @include respond-to(medium-and-up) {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: rem(20);
+    line-height: rem(30);
   }
-}
-
-//---------------------
-// TYPESTYLE 4
-// Where is this used?
-//---------------------
-%ts-4 {
-  font-family: inherit;
-  font-size: 18px;
-  line-height: 38px;
-}
-
-//---------------------
-// TYPESTYLE 5
-// Where is this used?
-//---------------------
-%ts-5 {
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 26px;
-}
-
-//---------------------
-// TYPESTYLE 6
-// Where is this used?
-//---------------------
-%ts-6 {
-  font-family: inherit;
-  font-size: 15px;
-  line-height: 24px;
-}
-
-//---------------------
-// TYPESTYLE 7
-// Where is this used?
-//---------------------
-%ts-7 {
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 26px;
 }
 
 //--------------------
@@ -136,30 +87,6 @@ $light: 300;
 //--------------------
 body {
   @extend %body-copy;
-
-  a {
-    text-decoration: none;
-  }
-
-  strong {
-    font-weight: $bold;
-
-    em {
-      font-weight: italic;
-    }
-  }
-
-  em {
-    font-weight: italic;
-
-    strong {
-      font-weight: $bold;
-    }
-  }
-
-  small {
-    font-size: 80%;
-  }
 
   p {
     line-height: $line-height;
@@ -184,30 +111,9 @@ body {
 // of css complied, root all tryles back
 // to these selectors where approriate,
 // other wise extent to component.
-.ts-0 {
-  @extend %ts-0;
-}
 
-.ts-1 {
-  @extend %ts-1;
-}
+.ts-1 { @extend %ts-1; }
 
-.ts-2 {
-  @extend %ts-2;
-}
+.ts-2 { @extend %ts-2; }
 
-.ts-3 {
-  @extend %ts-3;
-}
-
-.ts-4 {
-  @extend %ts-4;
-}
-
-.ts-5 {
-  @extend %ts-5;
-}
-
-.ts-6 {
-  @extend %ts-6;
-}
+.ts-3 { @extend %ts-3; }
