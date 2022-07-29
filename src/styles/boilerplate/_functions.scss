@@ -5,7 +5,7 @@
 $font-base: 16; // px
 
 @function rem($target: 16){
-  @return unquote($target / $font-base + "rem");
+  @return unquote( math.div($target, $font-base) + "rem");
 }
 
 @function nearest-multiple-floor( $num, $multiple ){

@@ -6,25 +6,33 @@
 
  $name: btn;
 
-//----------
-// BLOCK
-//----------
+//-----------
+// * BLOCK *
+//-----------
 .#{$name}{
     // Button
-    transition: background-color 150ms ease-in-out;
+    min-width: 138.11px;
+    height: 47px;
+    max-width: auto;
+    mix-blend-mode: normal;
+    box-shadow: 0px 1px 1px rgba($black, 0.25);
+    border-radius: 9px;
+
+    transition: background-color 250ms ease-in-out;
     cursor: pointer;
     white-space: nowrap;
     vertical-align: middle;
     outline: none;
     display: inline-flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: auto;
-    padding: 18px 23px;
+    padding: 10px 15px;
+    gap: 5px;
     position: relative;
     border-radius: 7px;
-    width: 100%;
-    margin-bottom: 15px;
+
+    mix-blend-mode: normal;
 
     // Default Typestyles
     @extend %ts-3;
@@ -33,91 +41,43 @@
     text-align: center;
     letter-spacing: 0.03rem;
 
-    // Default Theme
-    background-color: $btn-primary-color;
-    color: $btn-primary-highlight-color;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $white;
 
-    &:hover{
-        background-color: $mid-grey;
-        color: white;
-    }
-
-    // Button Submitting State
-    // Double Selector for higher spcificity - shoot me haha!
-    &.is-submitting.is-submitting{
+    .is-active &{
+        box-shadow: none ;
         pointer-events: none;
-        color: transparent !important;
-
-        // Hide Arrows
-        border-color: transparent;
-        
-        // Set Background Styles
-        background-color: $brand-grey;
-        // background-image: url(../images/base64/SVG/tail-spin.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 30px;
     }
-}
-
-//---------------------
-// MODIFIER - Secondary
-//---------------------
-.#{$name}--2nd{
-    // Default Theme
-    background-color: $btn-secondary-color;
-    color: $btn-secondary-highlight-color;
 
     &:hover{
-        background-color: $mid-grey;
-        color: white;
+        box-shadow: 0px 1px 1px rgba($black, 0);
+        border-color: $brand-yellow;
     }
-}
 
-//---------------------
-// MODIFIER - LARGE
-//---------------------
-.#{$name}--lg{
-    font-size: 26px;
-    padding: 29px 30px 27px;
+    // &.is-active{
+    //     box-shadow: 0px 1px 1px rgba($black, 0);
+    // }
 }
-//---------------------
-// MODIFIER - SMALL
-//---------------------
-.#{$name}--sm{
-    padding: 12px 10px;
-    font-size: 10px;
-}
-
-//---------------------
-// MODIFIER - SEARCH
-//---------------------
-// .#{$name}--search{}
 
 //-----------------------
-// MODIFIER - MORE
+// * MODIFIER * -- sec *
 //-----------------------
-.#{$name}--more{
+.#{$name}--sec{
+    // Default Theme
+    border-color: $brand-yellow;
+
     &:after{
-        content: '+';
-        font-size: 24px;
-        transform: translateX(50%); 
+        content: '';
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: $light-grey;
+        margin-left: rem(8);
     }
 
-    &.is-active:after{ content: '-'; }
-    &[class*="--lg"]:after{ font-size: 30px; }
-    &[class*="--sm"]:after{ font-size: 20px; }
-}
-
-//----------------------
-// MODIFIER - NEXT/PREV
-//----------------------
-// .#{$name}--next,
-// .#{$name}--prev{}
-
-//------------------------
-// RELATED - IS REVEALED
-//------------------------
-.#{$name}.is-revealed{
-    display: none;
+    &:hover{
+      background-color: $brand-yellow;
+    }
 }

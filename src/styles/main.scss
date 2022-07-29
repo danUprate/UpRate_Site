@@ -29,35 +29,16 @@ $prefixes: -moz -ms -o -webkit;
 //---------------------
 // LAYOUT
 //---------------------
-@import 'layout';
+@import 'layout/base';
+@import 'layout/container';
+@import 'layout/navbar';
 
 //---------------------
 // COMPONENTS
 //---------------------
-@import 'components/app-container';
-@import 'components/footer-bar';
-@import 'components/header-bar';
 @import 'components/media';
-@import 'components/placeholder-card';
 @import 'components/button';
-@import 'components/jobs-slider';
-@import 'components/jobs-card';
 
-.back-btn{
-    display: block;
-    max-width: 20px;
-    height: 20px;
-    width:100%;
-    overflow: hidden;
-    // background-color: $brand-yellow;
-    color: rgba($color: #000000, $alpha: 0);
-    border: 4px solid $brand-grey;
-    transform: rotate(45deg);
-    border-top-width: 0;
-    border-right-width: 0;
-    margin-right: 10px;
-    cursor: pointer;
-}
 
 //---------------------
 // TYPOGRAPGY
