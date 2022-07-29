@@ -1,0 +1,170 @@
+/**
+ * THEME
+ *
+ * For basic sites this should simply contain colour variables. 
+ * If a proper theme is to be applied this file should simply 
+ * import the theme file for each component which should be 
+ * contained within a theme folder.
+ */
+
+//----------------
+// BRAND COLOURS
+//----------------
+$brand-yellow: #F2C300;
+$brand-grey: #97999B;
+$brand-black: #242729;
+
+
+
+//------------------
+// SEMANTIC COLORS
+//------------------
+$black: $brand-black;
+$dark-glass: rgba($black, 0.8);
+$brand-grey: grey;
+$mid-grey: #b9b9b9;
+$light-grey: #e7e8e6;
+$placehold: #f1f1f1;
+$white: white;
+
+//---------------
+// THEME CONFIG
+//---------------
+
+//BUTTONS
+$btn-primary-color: $brand-yellow;
+$btn-primary-highlight-color: $brand-black;
+$btn-secondary-color: $brand-grey;
+$btn-secondary-highlight-color: $white;
+
+//LIST STYLES
+$list-style-color: $brand-yellow;
+
+//TYPE
+$heading-font-color: $brand-grey;
+$image-caption-color: $brand-grey;
+$link-color: $brand-yellow;
+$link-hover-color: $brand-yellow;
+$line-height: 24px;
+
+//CUSTOM VALUES
+$navigation-breakpoint: 100%;
+$global-animation-speed: 300ms;
+$border-radius-lg: 40px;
+$border-radius-md: 20px;
+$border-radius-sm: 10px;
+
+
+//DROP SHADOW
+@mixin drop-shadow($direction: bottom){
+  $colour: rgba($black, 0.18);
+  $depth: 1px;
+
+  @if $direction == left{
+    box-shadow: -#{$depth} 0 0 0 $colour;
+  }@else if $direction == right{
+    box-shadow: $depth 0 0 0 $colour;
+  }@else if $direction == top{
+    box-shadow: 0 -#{$depth} 0 0 $colour;
+  }@else{
+    box-shadow: 0 $depth 0 0 $colour;
+  }
+}
+
+//-------------
+// DROP SHADOW
+//-------------
+.drop-shadow,
+%drop-shadow{
+  @include drop-shadow;
+}
+
+.drop-shadow-up{
+  @include drop-shadow(top);
+  position: relative;
+  z-index: 200;
+}
+
+//------------
+// KEYFRAMES
+//------------
+@keyframes FADEIN{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes DELAY-FADE-OUT{
+  0%{ opacity: 1 }
+  80%{ opacity: 1 }
+  100%{ opacity: 0 }
+}
+
+
+//-------------
+// TEXT SELECT
+//-------------
+::selection,
+::-moz-selection { 
+  background-color: $brand-yellow; 
+  color: $white; 
+}
+
+//----------
+// FADE IN
+//----------
+// A helper to set a fade-in on page load.
+.fade-in{
+  opacity: 0;
+
+  &.is-visible{
+  opacity: 1;
+  animation: FADEIN 250ms ease-in-out;
+  }
+}
+
+
+.bg-image{
+  @include background(cover);
+  position: relative;
+
+  &[class*='bg-thm']{
+    &:before{
+      content: '';
+      @include cover(absolute);
+      background-color: inherit;
+      opacity: 0.8;
+      z-index: 0;
+    }
+  
+    > *{
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+//-------------
+// HR
+//-------------
+hr{
+  border: none;
+  height: 1px;
+  width: 100%;
+  background-color: $light-grey;
+  clear: both;
+}
+
+
+//-----------------
+// Hide Scrollbars
+//-----------------
+@mixin hide-scrollbars() {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar{
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

@@ -1,0 +1,39 @@
+/* TYPESTYLES
+ * Icomoon icon set
+ * Place and icons for the site here
+ */
+
+
+//INITIAL - Update these with your own icon font
+%close-icon{
+  content: "+";
+  transform: rotate(45deg);
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  font-size: 60px;
+}
+
+%arrow-left-icon{
+  content: "<";
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  font-size: 60px;
+}
+
+%arrow-right-icon{
+  content: ">";
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  font-size: 60px;
+}
+
+%plus-icon{
+  content: "+";
+  display: inline-block;
+  width: 44px;
+  text-align: center;
+  font-size: 60px;
+}

@@ -1,0 +1,123 @@
+/**
+ * COMPONENTS
+ * Button
+ * All Buttons
+ */
+
+ $name: btn;
+
+//----------
+// BLOCK
+//----------
+.#{$name}{
+    // Button
+    transition: background-color 150ms ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 18px 23px;
+    position: relative;
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 15px;
+
+    // Default Typestyles
+    @extend %ts-3;
+    line-height: 0;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.03rem;
+
+    // Default Theme
+    background-color: $btn-primary-color;
+    color: $btn-primary-highlight-color;
+
+    &:hover{
+        background-color: $mid-grey;
+        color: white;
+    }
+
+    // Button Submitting State
+    // Double Selector for higher spcificity - shoot me haha!
+    &.is-submitting.is-submitting{
+        pointer-events: none;
+        color: transparent !important;
+
+        // Hide Arrows
+        border-color: transparent;
+        
+        // Set Background Styles
+        background-color: $brand-grey;
+        // background-image: url(../images/base64/SVG/tail-spin.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 30px;
+    }
+}
+
+//---------------------
+// MODIFIER - Secondary
+//---------------------
+.#{$name}--2nd{
+    // Default Theme
+    background-color: $btn-secondary-color;
+    color: $btn-secondary-highlight-color;
+
+    &:hover{
+        background-color: $mid-grey;
+        color: white;
+    }
+}
+
+//---------------------
+// MODIFIER - LARGE
+//---------------------
+.#{$name}--lg{
+    font-size: 26px;
+    padding: 29px 30px 27px;
+}
+//---------------------
+// MODIFIER - SMALL
+//---------------------
+.#{$name}--sm{
+    padding: 12px 10px;
+    font-size: 10px;
+}
+
+//---------------------
+// MODIFIER - SEARCH
+//---------------------
+// .#{$name}--search{}
+
+//-----------------------
+// MODIFIER - MORE
+//-----------------------
+.#{$name}--more{
+    &:after{
+        content: '+';
+        font-size: 24px;
+        transform: translateX(50%); 
+    }
+
+    &.is-active:after{ content: '-'; }
+    &[class*="--lg"]:after{ font-size: 30px; }
+    &[class*="--sm"]:after{ font-size: 20px; }
+}
+
+//----------------------
+// MODIFIER - NEXT/PREV
+//----------------------
+// .#{$name}--next,
+// .#{$name}--prev{}
+
+//------------------------
+// RELATED - IS REVEALED
+//------------------------
+.#{$name}.is-revealed{
+    display: none;
+}

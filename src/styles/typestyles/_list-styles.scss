@@ -1,0 +1,44 @@
+/* TYPESTYLES
+ * List styles
+ */
+
+%list-styles {
+  ul, ol {
+    position: relative;
+    margin-bottom: 20px;
+    line-height: 28px;
+    color: rgba($black, 0.8);
+
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 30px;
+
+      &:before{
+        display: block;
+        position: absolute;
+        left: 7px;
+      }
+    }
+  }
+
+  ul li:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $list-style-color;
+    top: 10px;
+  }
+
+  ol {
+    counter-reset: counter;
+
+    li:before {
+      content: counter(counter);
+      counter-increment: counter;
+      top: 1px;
+      color: $list-style-color;
+    }
+  }
+}

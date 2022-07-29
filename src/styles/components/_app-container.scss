@@ -1,0 +1,59 @@
+/**
+ * COMPONENTS
+ * App Container
+ * This is the app container used to display the prototypes
+ */
+
+$name: app-container;
+
+
+//--------
+// BLOCK
+//--------
+.#{$name}{
+    //Layout
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    //Layout Theme Above Mobile
+    @include respond-to(small-and-up){
+
+        //Layout
+        max-width: 375px;
+        max-height: 812px;
+
+        //Display contents within a 'device'
+        border: 15px solid $black;
+        border-radius: 48px;
+        box-shadow:  0 2px 4px 1px rgba($color: $black, $alpha: 0.2);
+        overflow: hidden;
+    }
+
+    //Styles For Immediate Child - Root App Loader Div
+    > div{ 
+        //Layout
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        //Theme
+        padding-bottom: $clear-footer-bar;
+
+        //Manage Scrollable Content
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        @include hide-scrollbars;
+    }
+    
+}
+
+//--------
+// MODIFIER
+//--------
+// .#{$name}--mobile{
+    
+// }

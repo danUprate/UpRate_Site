@@ -1,0 +1,69 @@
+/**
+ * COMPONENTS
+ * Jobs Slider
+ * ---
+ */
+
+$name: jobs-slider;
+
+//--------
+// BLOCK
+//--------
+.#{$name}{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 20px 0;
+    
+}
+
+
+//--------
+// ELEMENTS
+//--------
+.#{$name}__title{
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.#{$name}__runner{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: scroll;
+    max-width: 100%;
+    position: relative;
+    right: -20px;
+    padding: 0 20px 0 20px;
+    margin-left: -40px;
+    margin-bottom: 17px;
+    @include hide-scrollbars;
+
+    > section{
+        margin-right: 10px;
+        min-width: 180px;
+    }
+}
+
+.#{$name}__link{
+    display: block;
+    text-align: right;
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+
+//-----------
+// MODIFIERS
+//-----------
+
+.#{$name}--1{
+    background-color: $light-grey;
+}
+
+.#{$name}--2{
+    background-color: $brand-yellow;
+}

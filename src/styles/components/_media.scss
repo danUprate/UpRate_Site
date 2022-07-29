@@ -1,0 +1,80 @@
+/**
+ * COMPONENTS
+ * Media
+ * The media component is used for images, videos and audio content.
+ */
+
+$name: media;
+
+
+//--------
+// BLOCK
+//--------
+.#{$name}{
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+//------------------
+// ELEMENT - IMAGE
+//------------------
+// .#{$name}__image{}
+
+//hide img tags when background-image is used for displaying content
+.#{$name}__image[style*="image"],
+[data-src]{
+  @include background(cover);
+  position: relative;
+  max-height: 500px;
+  max-width: 600px;
+  height: 50%;
+  width: 100%;
+  
+  // background-color: lightgrey;
+
+  @include respond-to(medium-and-up){
+    height: 46vw;
+    width: 50vw;
+  }
+    
+  @include respond-to(desk-and-up){
+    max-height: 750px;
+    max-width: 900px;
+    min-width: 600px;
+    min-height: 600px;
+
+  }
+
+  img{ display: none; }
+}
+
+
+//--------------------
+// ELEMENT - CAPTION
+//--------------------
+.#{$name}__caption{
+  // position: absolute;
+  bottom: 100px;
+  max-width: 700px;
+  min-height: 210px;
+  width: 100%;
+  padding: 0 20px;
+
+
+  @include respond-to(medium-and-up){
+    padding: 0;
+
+  }
+  
+}
+
+

@@ -1,0 +1,213 @@
+/* TYPESTYLES
+ * BASE
+ * These are the base typestyles. The goal of this partial is to own all
+ * typestles and reduce repitition with @extends and base Selectors for 
+ * the markup.
+ */
+
+//-------------------
+// GOOGLE EMBED
+//-------------------
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap');
+
+//-------------------
+// GLOBAL VARIABLES
+//-------------------
+$sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$awesome-sans: 'Roboto', $sans;
+$serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$button-font: $awesome-sans;
+$line-height: 24px;
+
+//-------------------
+// WEIGHTS
+//-------------------
+$black: 900;
+$bold: 700;
+$medium: 500;
+$normal: 400;
+$light: 300;
+
+//-------------------
+// BODY COPY
+//-------------------
+%body-copy {
+  font-family: $awesome-sans;
+  font-size: 15px;
+  line-height: $line-height;
+  font-weight: $normal;
+  font-style: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//---------------------
+// TYPESTYLE 0
+// Where is this used?
+//---------------------
+%ts-0 {
+  font-family: inherit;
+  font-size: 60px;
+  line-height: 70px;
+}
+
+//---------------------
+// TYPESTYLE 1
+// Where is this used?
+//---------------------
+%ts-1 {
+  font-family: inherit;
+  font-weight: $black;
+  margin-bottom: 10px;
+  font-size: 35px;
+  line-height: 45px;
+  text-rendering: auto;
+}
+
+//---------------------
+// TYPESTYLE 2
+// Where is this used?
+//---------------------
+%ts-2 {
+  font-family: inherit;
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 900;
+}
+
+//---------------------
+// TYPESTYLE 3
+// Where is this used?
+//---------------------
+%ts-3 {
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: $bold;
+
+  @include respond-to(medium-and-up) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+//---------------------
+// TYPESTYLE 4
+// Where is this used?
+//---------------------
+%ts-4 {
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 38px;
+}
+
+//---------------------
+// TYPESTYLE 5
+// Where is this used?
+//---------------------
+%ts-5 {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+//---------------------
+// TYPESTYLE 6
+// Where is this used?
+//---------------------
+%ts-6 {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+//---------------------
+// TYPESTYLE 7
+// Where is this used?
+//---------------------
+%ts-7 {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+//--------------------
+// APPLY TAG DEFAULTS
+//--------------------
+body {
+  @extend %body-copy;
+
+  a {
+    text-decoration: none;
+  }
+
+  strong {
+    font-weight: $bold;
+
+    em {
+      font-weight: italic;
+    }
+  }
+
+  em {
+    font-weight: italic;
+
+    strong {
+      font-weight: $bold;
+    }
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  p {
+    line-height: $line-height;
+    margin-bottom: $line-height;
+
+    a {
+      color: $link-color;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+//--------------------
+// APPLY TS SELECTORS
+//--------------------
+// This is so we can reduce the amount
+// of css complied, root all tryles back
+// to these selectors where approriate,
+// other wise extent to component.
+.ts-0 {
+  @extend %ts-0;
+}
+
+.ts-1 {
+  @extend %ts-1;
+}
+
+.ts-2 {
+  @extend %ts-2;
+}
+
+.ts-3 {
+  @extend %ts-3;
+}
+
+.ts-4 {
+  @extend %ts-4;
+}
+
+.ts-5 {
+  @extend %ts-5;
+}
+
+.ts-6 {
+  @extend %ts-6;
+}

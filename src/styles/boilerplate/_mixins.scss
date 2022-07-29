@@ -1,0 +1,196 @@
+/**
+ * MIXINS
+ */
+
+
+
+//-----------------
+// CONFIG
+//-----------------
+$desk: 1500px;
+$wide: 1024px;
+$medium: 768px;
+$small: 640px;
+
+//-----------------
+// MEDIA QUERIES
+//-----------------
+@mixin respond-to($media){
+  @if $media == desk-and-up{
+    @media only screen and (min-width : $desk){ @content;}
+  }
+  @else if $media == wide-and-up{
+    @media only screen and (min-width : $wide){ @content;}
+  }
+  @else if $media == wide-and-down{
+    @media only screen and (max-width : ($wide - 1) ){ @content;}
+  }
+  @else if $media == medium-and-up{
+    @media only screen and (min-width : $medium){ @content;}
+  }
+  @else if $media == medium-and-down{
+    @media only screen and (max-width : ($medium - 1)){ @content;}
+  }
+  @else if $media == small-and-up{
+    @media only screen and (min-width : $small){ @content;}
+  }
+  @else if $media == small-and-down{
+    @media only screen and (max-width : ($small - 1)){ @content;}
+  }
+  @else if $media == desk{
+    @media only screen and (max-width : ($desk - 1)) and (min-width : ($wide + 1)){ @content;}
+  }
+  @else if $media == wide{
+    @media only screen and (max-width : $wide) and (min-width : ($medium + 1)){ @content;}
+  }
+  @else if $media == medium{
+    @media only screen and (max-width : $medium) and (min-width : ($small + 1)){ @content;}
+  }
+  @else if $media == small{
+    @media only screen and (max-width : $small){ @content;}
+  }
+}
+// The media-width mixin is used to patch any holes in the project
+// Use sparingly and place any new breakpoint variables in the project
+// theme file for safe keeping.
+@mixin media-width($breakpoint){
+  @media only screen and (min-width : $breakpoint){ @content;}
+}
+
+//-----------------
+//BACKGROUND MIXINS
+//-----------------
+@mixin background($media){
+  @if $media == cover{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+  }
+  @else if $media == contain{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+//--------------
+// COVER MIXINS
+//--------------
+@mixin cover($media){
+  @if $media == absolute{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @else if $media == fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+//-----------------
+// CLEARFIX MIXIN
+//-----------------
+@mixin clearfix{
+  &:before, &:after{
+    content: " ";
+    display: table;
+  }
+
+  &:after{ clear: both; }
+}
+
+//-----------------
+// SCROLLABLE MIXIN 
+//-----------------
+@mixin scrollable( $axis ){
+  overflow-#{$axis}: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+//-----------
+// FLUID FONT
+// example use h1 { @include fluid-type($min_width, $max_width, $min_font, $max_font); }
+// -----------
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+//---------------------
+// BROWSERS FALLBACKS
+// can be used with or without giving a width in px
+//---------------------
+@mixin ie-fallback($width: null){
+  @if $width {
+    @media all and (-ms-high-contrast: none) and (min-width: $width), (-ms-high-contrast: active) and (min-width: $width) {
+      @content;
+    }
+  }@else{
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @content;
+    }
+  }
+}
+
+@mixin firefox-fallback{
+  @-moz-document url-prefix(){ 
+    @content;
+  }
+}
+
+@mixin edge-fallback{
+  @supports (-ms-ime-align:auto) {
+    @content; 
+  }
+}
+
+// TODO
+// @mixin safari-fallback{
+//   @content;
+// }
+
+// @mixin chrome-fallback{
+//   @content;
+// }
+
+//------------------------
+//ASPECT RATIO CALCULATOR
+//------------------------
+@mixin aspect-ratio($width, $height){
+  padding-top: math.div($height, $width) * 100%;
+}
+
+//------------------------
+//ASPECT RATIO CALCULATOR
+//------------------------
+@mixin aspect-ratio-banner($width, $height){
+  padding-top: math.div($height, $width) * 100%;
+
+  @include media-width($width + px){
+    padding-top: 0;
+    height: $height;
+  }
+}

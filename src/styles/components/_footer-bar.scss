@@ -1,0 +1,80 @@
+/**
+ * COMPONENTS
+ * Footer Bar
+ * Main Controls for the Footer Bar
+ */
+
+$name: footer-bar;
+
+//--------
+// BLOCK
+//--------
+.#{$name}{
+    //Layout
+    height: $footerbar-height;
+    width: 100%;
+    position: fixed;
+
+    //Avoide position jump 'glitch' as mobile browser view height adjusts with scroll. Bottom 0 wont maintain footer position accuratly.
+    top: 100%;
+    left: 0;
+    transform: translateY(-100%);
+
+    //Manage Contents
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 30px;
+
+    //Theme
+    @include drop-shadow(top);
+    background-color: $white;
+}
+
+.hide-me .#{$name}{
+    transform: translateY(0%);
+    transition: all 200ms 200ms ease-in-out;
+}
+
+//--------
+// ELEMENT
+//--------
+.#{$name}__btn{
+    cursor: pointer;
+    min-width: 65px;
+
+    //Align button contents
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    //Apply specific typestyles
+    font-size: 13px;
+    font-weight: $medium;
+    color: $brand-grey;
+    line-height: 20px;
+
+    //Placeholder for a button icon
+    &:before{
+        content: '';
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: $mid-grey;
+    }
+    
+}
+
+
+//-----------
+// MODIFIERS
+//-----------
+
+// Hacky but works for now
+// Would prefer this be handled more dynamicaly via react assigning an active state.
+.my-uprate .#{$name}__btn--uprate,
+.jobs-board .#{$name}__btn--jobs{
+    color: $brand-black;
+    &:before{ background-color: $brand-yellow;}
+}
